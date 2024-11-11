@@ -3,6 +3,10 @@ import { FaSearch } from 'react-icons/fa';
 
 // Header component with animated hero section and search bar
 const Header = ({ searchQuery, setSearchQuery, handleSearch }) => {
+  const handleIconClick = () => {
+    handleSearch(); // Trigger search when icon is clicked
+  };
+
   return (
     // Animated header with background image and full-height styling
     <motion.header 
@@ -54,13 +58,14 @@ const Header = ({ searchQuery, setSearchQuery, handleSearch }) => {
                 onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()} // Trigger search on Enter
                 placeholder="Search for books..."
-                className="w-full px-6 py-4 pl-14 rounded-full bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent text-lg transition-all duration-300 shadow-lg"
+                className="w-full px-6 py-4 pl-4 pr-16 rounded-full bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent text-lg transition-all duration-300 shadow-lg"
               />
               
               {/* Search icon inside the input field */}
               <FaSearch 
-                className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-500 group-hover:text-primary transition-colors duration-300"
+                className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-500 group-hover:text-primary transition-colors duration-300 cursor-pointer"
                 size={20} 
+                onClick={handleIconClick} // Add onClick handler to trigger search
               />
             </motion.div>
           </div>
