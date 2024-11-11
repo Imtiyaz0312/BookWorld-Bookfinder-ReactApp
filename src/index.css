@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Resetting font rendering and smoothing */
+
+:root {
+    font-synthesis: none;
+    /* Disables font synthesis (e.g., bolding synthetic fonts) */
+    text-rendering: optimizeLegibility;
+    /* Enhances text readability */
+    -webkit-font-smoothing: antialiased;
+    /* Improves font rendering for webkit browsers */
+    -moz-osx-font-smoothing: grayscale;
+    /* Improves font rendering for Firefox on macOS */
+}
+
+
+/* Modern Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* Sets the width of the scrollbar */
+    height: 8px;
+    /* Sets the height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Light background for the scrollbar track */
+    border-radius: 4px;
+    /* Rounds the corners of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #739E82;
+    /* Greenish thumb color */
+    border-radius: 4px;
+    /* Rounds the corners of the scrollbar thumb */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4A5D4C;
+}
+
+
+/* Typewriter Animation */
+
+.typewriter {
+    overflow: hidden;
+    /* Hides overflowed text */
+    border-right: 3px solid #fff;
+    /* Adds a cursor effect */
+    white-space: nowrap;
+    /* Ensures the text does not wrap */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    /* Defines typing and blinking animations */
+}
+
+
+/* Typing effect: Simulates typing by adjusting width */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+/* Blinking caret effect */
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #fff;
+    }
+}
+
+
+/* Card hover effects */
+
+.book-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Smooth transition for hover effects */
+}
+
+.book-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    /* Elevates and slightly scales the card on hover */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    /* Adds shadow effect on hover */
+}
+
+
+/* Loading spinner animation */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+        /* Spins the element 360 degrees */
+    }
+}
+
+.animate-spin-slow {
+    animation: spin 2s linear infinite;
+    /* Applies the spinning animation */
+}
+
+
+/* Mobile optimizations */
+
+@media (max-width: 640px) {
+    .book-title {
+        font-size: 1.25rem;
+        /* Reduces book title font size on mobile */
+    }
+    /* .book-card {
+        max-width: 280px; 
+    } */
+    .typewriter {
+        font-size: 2.5rem;
+        /* Reduces font size for typewriter effect on mobile */
+        white-space: normal;
+        /* Allows text wrapping */
+        border-right: none;
+        /* Removes the typing cursor */
+    }
+}
