@@ -4,7 +4,7 @@ const BookCard = ({ book, setSelectedBook }) => {
   // Set cover image URL, fallback to a placeholder if no cover is found
   const coverUrl = book.cover_i 
     ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-    : 'https://via.placeholder.com/400x600?text=No+Cover';
+    : '../assets/no_cover.png';
 
   return (
 
